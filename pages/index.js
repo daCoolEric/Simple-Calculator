@@ -1,8 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { useState } from "react";
 
 export default function Home() {
+  const [arr, setArr] = useState([]);
+  const [sec, setSec] = useState([]);
   return (
     <div className={styles.container}>
       <Head>
@@ -15,8 +18,12 @@ export default function Home() {
         <div className={styles.calcContainer}>
           <div className={styles.calcScreen}>
             <div className={styles.calcScreenTheme}>Theme Switch</div>
-            <div className={styles.calcScreenSecondary}>0</div>
-            <div className={styles.calcScreenPrimary}>0</div>
+            <div className={styles.calcScreenSecondary}>
+              {sec.map((curr) => curr)}
+            </div>
+            <div className={styles.calcScreenPrimary}>
+              {arr.map((curr) => curr)}
+            </div>
           </div>
           <div className={styles.calcKeypad}>
             <div className={styles.keysContainer}>
@@ -30,16 +37,19 @@ export default function Home() {
                   <div className={styles.downKeysRow1}>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, 1])}
                     >
                       1
                     </button>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, 2])}
                     >
                       2
                     </button>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, 3])}
                     >
                       3
                     </button>
@@ -47,16 +57,19 @@ export default function Home() {
                   <div className={styles.downKeysRow2}>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, 4])}
                     >
                       4
                     </button>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, 5])}
                     >
                       5
                     </button>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, 6])}
                     >
                       6
                     </button>
@@ -64,16 +77,19 @@ export default function Home() {
                   <div className={styles.downKeysRow3}>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, 7])}
                     >
                       7
                     </button>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, 8])}
                     >
                       8
                     </button>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, 9])}
                     >
                       9
                     </button>
@@ -81,16 +97,19 @@ export default function Home() {
                   <div className={styles.downKeysRow4}>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, "."])}
                     >
                       .
                     </button>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, 0])}
                     >
                       0
                     </button>
                     <button
                       className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                      onClick={() => setArr(() => [...arr, "00"])}
                     >
                       00
                     </button>
@@ -108,12 +127,33 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.rightKeysContainer}>
-                <button className={styles.btnSize}>÷</button>
-                <button className={styles.btnSize}>x</button>
-                <button className={styles.btnSize}>-</button>
-                <button className={styles.btnSize}>+</button>
+                <button
+                  className={styles.btnSize}
+                  onClick={() => setArr(() => [...arr, "÷"])}
+                >
+                  ÷
+                </button>
+                <button
+                  className={styles.btnSize}
+                  onClick={() => setArr(() => [...arr, "x"])}
+                >
+                  x
+                </button>
+                <button
+                  className={styles.btnSize}
+                  onClick={() => setArr(() => [...arr, "-"])}
+                >
+                  -
+                </button>
+                <button
+                  className={styles.btnSize}
+                  onClick={() => setArr(() => [...arr, "+"])}
+                >
+                  +
+                </button>
                 <button
                   className={`${styles.btnSize} ${styles.downBtnRowColor}`}
+                  onClick={() => setSec(() => [...arr])}
                 >
                   =
                 </button>
